@@ -6,22 +6,182 @@
     <title>Meals</title>
     <link rel="stylesheet" href="../styles/common.css">
     <link rel="stylesheet" href="../styles/meals.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-
-     <div class="wrapper">
+    <div class="wrapper">
         <div class="sidebar">
             <ul>
-                <li>Meals</li>
-                <li>Report</li>
-                <li>Stats</li>
+                <li><a href="../index.html"><button>Dashboard</button></a></li>
+                <li><a href="./diary.html"><button>Diary</button></a></li>
+                <li><a href="./meals.html"><button class="page-button">Meals</button></a></li>
+                <li><a href="./stats.html"><button>Stats</button></a></li>
+                <li><a href="./report.html"><button>Report</button></a></li>
             </ul>
         </div>
+
         <div class="content">
-              Meals
-    <a href="../index.html"> Go to Dashboard</a>
+            <h1>Meals Page</h1>
+            <div class="weekly-meals-section">
+                <div class="meal-heading">
+                    <div class="left-arrow">←</div>
+                    <div class="weekday-name">Monday</div>
+                    <div class="right-arrow">→</div>
+                </div>
+                <div class="weekly-meals-content">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        +
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="saved-meals-section">
+                <div class="meal-heading">
+                    <div class="left-arrow">←</div>
+                    <div class="save-meals-name">Favourites</div>
+                    <div class="right-arrow">→</div>
+                </div>
+                <div class="saved-meals-content">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="more-meals-section">
+                <div class="meal-heading">
+                    <div class="left-arrow">←</div>
+                    <div class="more-meals-name">Try something new...</div>
+                    <div class="right-arrow">→</div>
+                </div>
+                <div class="more-meals-content top-row">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-meals-content bottom-row">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label high-fodmap">High FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label high-fodmap">High FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label high-fodmap">High FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label high-fodmap">High FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        
     </div>
 </body>
 </html>
