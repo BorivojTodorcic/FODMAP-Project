@@ -11,24 +11,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="sidebar">
-            <ul>
-                <li><a href="../index.html"><button>Dashboard</button></a></li>
-                <li><a href="./diary.html"><button>Diary</button></a></li>
-                <li><a href="./meals.html"><button class="page-button">Meals</button></a></li>
-                <li><a href="./stats.html"><button>Stats</button></a></li>
-                <li><a href="./report.html"><button>Report</button></a></li>
-            </ul>
+    <div class="navbar">
+        <div class="home-button">
+            <a href="../index.html"><button><img src="../images/dashboard_inactive.png" alt="dashboard" height="50px"></button></a></li>
         </div>
+        <div class="menu-items">
+            <a href="./diary.html"><button>Diary</button></a></li>
+            <a href="./meals.html"><button class="page-button">Meals</button></a></li>
+            <a href="./recipes.html"><button>Recipes</button></a></li>
+            <a href="./stats.html"><button>Stats</button></a></li>
+        </div>
+    </div>
+
+    <div class="wrapper">
 
         <div class="content">
-            <h1>Meals Page</h1>
+            <div class="page-header">
+                <h1>Meals Page</h1>
+                <img class="shopping-basket" src="../images/shopping_basket.png" alt="export ingreidients list" height="50px">
+            </div>
+
+            <!-- Monday -->
             <div class="weekly-meals-section">
                 <div class="meal-heading">
-                    <div class="left-arrow">←</div>
                     <div class="weekday-name">Monday</div>
-                    <div class="right-arrow">→</div>
+                </div>
+                <div class="weekly-meals-content">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container" style="font-size: 200px; font-weight: 600; text-align: center; color: #FCF8F3;">
+                        +
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tuesday -->
+            <div class="weekly-meals-section">
+                <div class="meal-heading">
+                    <div class="weekday-name">Tuesday</div>
                 </div>
                 <div class="weekly-meals-content">
                     <div class="recipe-container">
@@ -56,19 +98,22 @@
                         </div>
                     </div>
                     <div class="recipe-container">
-                        +
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-
-            <div class="saved-meals-section">
+            <!-- Wednesday -->
+            <div class="weekly-meals-section">
                 <div class="meal-heading">
-                    <div class="left-arrow">←</div>
-                    <div class="save-meals-name">Favourites</div>
-                    <div class="right-arrow">→</div>
+                    <div class="weekday-name">Wednesday</div>
                 </div>
-                <div class="saved-meals-content">
+                <div class="weekly-meals-content">
                     <div class="recipe-container">
                         <div class="rec-img"></div>
                         <div class="rec-details">
@@ -103,15 +148,13 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="more-meals-section">
+            
+            <!-- Thursday -->
+            <div class="weekly-meals-section">
                 <div class="meal-heading">
-                    <div class="left-arrow">←</div>
-                    <div class="more-meals-name">Try something new...</div>
-                    <div class="right-arrow">→</div>
+                    <div class="weekday-name">Thursday</div>
                 </div>
-                <div class="more-meals-content top-row">
+                <div class="weekly-meals-content">
                     <div class="recipe-container">
                         <div class="rec-img"></div>
                         <div class="rec-details">
@@ -140,46 +183,140 @@
                         <div class="rec-img"></div>
                         <div class="rec-details">
                             <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                            <div class="rec-title">Recipe Title</div>
-                            <div class="rec-prep-time">Prep time</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="more-meals-content bottom-row">
-                    <div class="recipe-container">
-                        <div class="rec-img"></div>
-                        <div class="rec-details">
-                            <div class="fodmap-index-label high-fodmap">High FODMAP</div>
-                            <div class="rec-title">Recipe Title</div>
-                            <div class="rec-prep-time">Prep time</div>
-                        </div>
-                    </div>
-                    <div class="recipe-container">
-                        <div class="rec-img"></div>
-                        <div class="rec-details">
-                            <div class="fodmap-index-label high-fodmap">High FODMAP</div>
-                            <div class="rec-title">Recipe Title</div>
-                            <div class="rec-prep-time">Prep time</div>
-                        </div>
-                    </div>
-                    <div class="recipe-container">
-                        <div class="rec-img"></div>
-                        <div class="rec-details">
-                            <div class="fodmap-index-label high-fodmap">High FODMAP</div>
-                            <div class="rec-title">Recipe Title</div>
-                            <div class="rec-prep-time">Prep time</div>
-                        </div>
-                    </div>
-                    <div class="recipe-container">
-                        <div class="rec-img"></div>
-                        <div class="rec-details">
-                            <div class="fodmap-index-label high-fodmap">High FODMAP</div>
                             <div class="rec-title">Recipe Title</div>
                             <div class="rec-prep-time">Prep time</div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Friday -->
+            <div class="weekly-meals-section">
+                <div class="meal-heading">
+                    <div class="weekday-name">Friday</div>
+                </div>
+                <div class="weekly-meals-content">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saturday -->
+            <div class="weekly-meals-section">
+                <div class="meal-heading">
+                    <div class="weekday-name">Saturday</div>
+                </div>
+                <div class="weekly-meals-content">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sunday -->
+            <div class="weekly-meals-section">
+                <div class="meal-heading">
+                    <div class="weekday-name">Sunday</div>
+                </div>
+                <div class="weekly-meals-content">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            
         </div>
         
     </div>
