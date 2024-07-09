@@ -1,0 +1,50 @@
+/* Graph containers */
+.graph-card {
+    justify-content: center;
+    /* background-color: #DCA47C; */
+    margin: 75px 30px;
+}
+
+
+/* Graph Heading Section */
+.graph-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding-top: 10px;
+}
+
+
+/* Graph Title */
+.graph-heading > .graph-title {
+    font-size: xx-large;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+/* Dropdown Menu */
+.symptom-tracker-dropdown, .food-tracker-dropdown {
+    height: 50px;
+    width: 175px;
+    background-color: #698474;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    font-size: large;
+    font-weight: 350;
+    color: #FCF8F3;
+}
+
+
+/* Graph Image */
+img.graph {
+    width: 800px;
+    border-radius: 10px;
+    margin-top: 20px;
+}

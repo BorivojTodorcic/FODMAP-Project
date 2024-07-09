@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/meals.css">
+    <link rel="stylesheet" href="./styles/stats.css">
     <link rel="stylesheet" href="./styles/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,20 +16,123 @@
    
     <div class="navbar">
         <div class="home-button">
-            <a href="../index.html"><button><img src="../images/dashboard_active.png" alt="dashboard" height="50px"></button></a></li>
+            <a href="../index.html"><button><img src="../images/dashboard_active.png" alt="dashboard" height="50px"></button></a>
         </div>
         <div class="menu-items">
-            <a href="./pages/diary.html"><button>Diary</button></a></li>
-            <a href="./pages/meals.html"><button >Meals</button></a></li>
-            <a href="./pages/recipes.html"><button>Recipes</button></a></li>
-            <a href="./pages/stats.html"><button>Stats</button></a></li>
+            <a href="./pages/diary.html"><button>Diary</button></a>
+            <a href="./pages/meals.html"><button >Meals</button></a>
+            <a href="./pages/recipes.html"><button>Recipes</button></a>
+            <a href="./pages/stats.html"><button>Stats</button></a>
         </div>
     </div>
 
     <div class="wrapper">
 
         <div class="content">
-            <h1>Dashboard</h1>
+            <div class="dashboard-hero">
+                <div class="welcome-message">Welcome back, Boki</div>
+                <div class="user-image"><img src="./images/profile.jpeg" alt="Profile picture"></div>
+                <div class="user-streak">
+                    <ul>
+                        <li class="active-streak">M</li>
+                        <li class="active-streak">T</li>
+                        <li class="inactive-streak">W</li>
+                        <li class="active-streak">T</li>
+                        <li class="active-streak">F</li>
+                        <li class="active-streak">S</li>
+                        <li class="inactive-streak">S</li>
+                    </ul>
+                </div>
+                <div class="hero-background"></div>
+            </div>
+            
+            <!-- Today's Meal -->
+            <div class="weekly-meals-section">
+                <div class="meal-heading">
+                    <div class="weekday-name">Today's Meal Plan</div>
+                </div>
+                <div class="weekly-meals-content">
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                    <div class="recipe-container">
+                        <div class="rec-img"></div>
+                        <div class="rec-details">
+                            <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                            <div class="rec-title">Recipe Title</div>
+                            <div class="rec-prep-time">Prep time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Graphs -->
+            <div class="progress-graphs">
+
+                <!-- Symptom Tracker -->
+                <div class="graph-card symptom-tracker">
+                    <div class="graph-heading">
+                        <div class="graph-title">Symptom Tracker</div>
+                        <div class="select-container">
+                            <select class="symptom-tracker-dropdown" name="symptom-tracker-dropdown" id="symptom-tracker">
+                                <option value="overall">Overall</option>
+                                <option value="stomach-pain">Stomach Pain</option>
+                                <option value="bloating">Bloating</option>
+                                <option value="flatulance">Flatulance</option>
+                                <option value="diarrhoea">Diarrhoea</option>
+                                <option value="constipation">Constipation</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="graph-container">
+                        <img class="graph" src="../images/symptom-tracker.png" alt="">
+                    </div>
+                </div>
+                
+                <!-- Food Item -->
+                <div class="graph-card food-item">
+                    <div class="graph-heading">
+                        <div class="graph-title">Food Item</div>
+                        <div class="select-container">
+                            <select class="food-tracker-dropdown" name="food-tracker-dropdown" id="food-score">
+                                <option value="wheat">Wheat</option>
+                                <option value="cheese">Cheese</option>
+                                <option value="onions">Onions</option>
+                                <option value="mushrooms">Mushrooms</option>
+                                <option value="beans">Beans</option>
+                                <option value="lentils">Lentils</option>
+                                <option value="grapes">Grapes</option>
+                                <option value="milk">Milk</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="graph-container">
+                        <img class="graph" src="../images/food-tracker.png" alt="">
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
