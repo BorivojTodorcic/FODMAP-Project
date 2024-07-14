@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats</title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/stats.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="home-button">
+            <a href="../index.html"><button><img src="../images/dashboard_inactive.png" alt="dashboard" height="50px"></button></a>
+        </div>
+        <div class="menu-items">
+            <a href="./diary.html"><button class="navbar-button">Diary</button></a>
+            <a href="./meals.html"><button class="navbar-button">Meals</button></a>
+            <a href="./recipes.html"><button class="navbar-button">Recipes</button></a>
+            <a href="./stats.html"><button class="navbar-button navbar-button-active">Stats</button></a>
+        </div>
+    </div>
+
+    <div class="wrapper">
+
+        <div class="content">
+
+            <div class="page-header">
+                <h1>Stats Page</h1>
+            </div>
+
+            <!-- Symptom Tracker -->
+            <div class="graph-card">
+                <div class="graph-heading">
+                    <div class="graph-title">Symptom Tracker</div>
+                    <div class="select-container">
+                        <select class="symptom-tracker-dropdown" name="symptom-tracker-dropdown" id="symptom-tracker">
+                            <option value="overall">Overall</option>
+                            <option value="stomach-pain">Stomach Pain</option>
+                            <option value="bloating">Bloating</option>
+                            <option value="flatulance">Flatulance</option>
+                            <option value="diarrhoea">Diarrhoea</option>
+                            <option value="constipation">Constipation</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="graph-container">
+                    <img class="graph" src="../images/symptom-tracker.png" alt="">
+                </div>
+            </div>
+
+            <!-- Food Item -->
+            <div class="graph-card">
+                <div class="graph-heading">
+                    <div class="graph-title">Food Item</div>
+                    <div class="select-container">
+                        <select class="food-tracker-dropdown" name="food-tracker-dropdown" id="food-score">
+                            <option value="wheat">Wheat</option>
+                            <option value="cheese">Cheese</option>
+                            <option value="onions">Onions</option>
+                            <option value="mushrooms">Mushrooms</option>
+                            <option value="beans">Beans</option>
+                            <option value="lentils">Lentils</option>
+                            <option value="grapes">Grapes</option>
+                            <option value="milk">Milk</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="graph-container">
+                    <img class="graph" src="../images/food-tracker.png" alt="">
+                </div>
+            </div>
+
+            <!-- Symptom Score -->
+            <div class="graph-card">
+                <div class="graph-heading">
+                    <div class="graph-title">Symptom Score</div>
+                    <div class="select-container">
+                        <select class="symptom-tracker-dropdown" name="symptom-tracker-dropdown" id="symptom-score">
+                            <option value="overall">Overall</option>
+                            <option value="stomach-pain">Stomach Pain</option>
+                            <option value="bloating">Bloating</option>
+                            <option value="flatulance">Flatulance</option>
+                            <option value="diarrhoea">Diarrhoea</option>
+                            <option value="constipation">Constipation</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="graph-container">
+                    <img class="graph" src="../images/symptom-score.png" alt="">
+                </div>
+            </div>
+
+
+        </div>
+        
+        
+    </div>
+</body>
+</html>
