@@ -54,6 +54,7 @@
     border-radius: 10px;
 }
 
+/* Streak styling */
 ul {
     list-style: none;
     padding-inline-start: 0;
@@ -99,20 +100,21 @@ li {
 
 }
 
-.graph-container img {
-    width: 500px;
-    height: 300px;
-}
-
 .graph-card {
     width: 500px;
 }
 
-.graph-card.food-item {
-    grid-column: 3 / 4;
-    margin: 75px 0px;
+img.graph {
+    width: 500px;
+    height: 300px;
 }
+
 .graph-card.symptom-tracker {
     grid-column: 1 / 2;
+    margin: 75px 0px;
+}
+
+.graph-card.food-item {
+    grid-column: 3 / 4;
     margin: 75px 0px;
 }

@@ -13,13 +13,17 @@
 <body>
     <div class="navbar">
         <div class="home-button">
-            <a href="../index.html"><button><img src="../images/dashboard_inactive.png" alt="dashboard" height="50px"></button></a></li>
+            <a href="../index.html">
+                <button>
+                    <img src="../images/dashboard_inactive.png" alt="dashboard" height="50px">
+                </button>
+            </a>
         </div>
         <div class="menu-items">
-            <a href="./diary.html"><button class="page-button">Diary</button></a></li>
-            <a href="./meals.html"><button>Meals</button></a></li>
-            <a href="./recipes.html"><button>Recipes</button></a></li>
-            <a href="./stats.html"><button>Stats</button></a></li>
+            <a href="./diary.html"><button class="navbar-button navbar-button-active">Diary</button></a>
+            <a href="./meals.html"><button class="navbar-button">Meals</button></a>
+            <a href="./recipes.html"><button class="navbar-button">Recipes</button></a>
+            <a href="./stats.html"><button class="navbar-button">Stats</button></a>
         </div>
     </div>
 
@@ -27,182 +31,261 @@
         <div class="content">
 
         
-        <div class="page-header">
-            <h1>Diary Page</h1>
-        </div>
-
-
-        <div class="diary-section">
-            <div class="diary-heading">
-                <div class="left-arrow">←</div>
-                <div class="diary-day">Today</div>
-                <div class="right-arrow">→</div>
+            <div class="page-header">
+                <h1>Diary Page</h1>
             </div>
 
-            <div class="diary-meal-container breakfast">
 
-                <div class="diary-entry-recipe">
-                    <div class="diary-content">
-                        <div class="recipe-container">
-                            <div class="rec-img"></div>
-                            <div class="rec-details">
-                                <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                                <div class="rec-title">Recipe Title</div>
-                                <div class="rec-prep-time">Breakfast</div>
+            <div class="diary-section">
+                <div class="diary-heading">
+                    <div class="arrow">←</div>
+                    <div class="diary-day">Today</div>
+                    <div class="arrow">→</div>
+                </div>
+
+                <div class="diary-meal-container breakfast">
+
+                    <div class="diary-entry-recipe">
+                        <div class="diary-content">
+                            <div class="recipe-container">
+                                <div class="recipe-image"></div>
+                                <div class="recipe-details">
+                                    <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                                    <div class="recipe-title">Recipe Title</div>
+                                    <div class="recipe-prep-time">Breakfast</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diary-entry-data">
+                        <h2>I've got...</h2>
+                            <div class="data-row">
+                                <div class="property">
+                                    <label for="stomach-pain">Stomach Pain</label>
+                                </div>
+                                <div class="value">
+                                    <input class="slider" type="range" id="stomach-pain" name="stomach-pain" min="0" max="4" />
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="property">
+                                    <label for="bloating">Bloating</label>
+                                </div>
+                                <div class="value">
+                                    <input class="slider" type="range" id="bloating" name="bloating" min="0" max="4" />
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="property">
+                                    <label for="flatulance">Flatulance</label>
+                                </div>
+                                <div class="value">
+                                    <input class="slider" type="range" id="flatulance" name="flatulance" min="0" max="4" />
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="property">
+                                    <label for="diarrhoea">Diarrhoea</label>
+                                </div>
+                                <div class="value">
+                                    <input class="slider" type="range" id="diarrhoea" name="diarrhoea" min="0" max="4" />
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="property">
+                                    <label for="constipation">Constipation</label>
+                                </div>
+                                <div class="value">
+                                    <input class="slider" type="range" id="constipation" name="constipation" min="0" max="4" />
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+
+                <div class="diary-meal-container lunch">
+
+                    <div class="diary-entry-recipe">
+                        <div class="diary-content">
+                            <div class="recipe-container">
+                                <div class="recipe-image"></div>
+                                <div class="recipe-details">
+                                    <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                                    <div class="recipe-title">Recipe Title</div>
+                                    <div class="recipe-prep-time">Lunch</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diary-entry-data">
+                        <h2>I've got...</h2>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="stomach-pain">Stomach Pain</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="stomach-pain" name="stomach-pain" min="0" max="4" />
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="bloating">Bloating</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="bloating" name="bloating" min="0" max="4" />
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="flatulance">Flatulance</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="flatulance" name="flatulance" min="0" max="4" />
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="diarrhoea">Diarrhoea</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="diarrhoea" name="diarrhoea" min="0" max="4" />
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="constipation">Constipation</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="constipation" name="constipation" min="0" max="4" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="diary-meal-container dinner">
+
+                    <div class="diary-entry-recipe">
+                        <div class="diary-content">
+                            <div class="recipe-container">
+                                <div class="recipe-image"></div>
+                                <div class="recipe-details">
+                                    <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                                    <div class="recipe-title">Recipe Title</div>
+                                    <div class="recipe-prep-time">Dinner</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diary-entry-data">
+                        <h2>I've got...</h2>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="stomach-pain">Stomach Pain</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="stomach-pain" name="stomach-pain" min="0" max="4" />
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="bloating">Bloating</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="bloating" name="bloating" min="0" max="4" />
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="flatulance">Flatulance</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="flatulance" name="flatulance" min="0" max="4" />
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="diarrhoea">Diarrhoea</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="diarrhoea" name="diarrhoea" min="0" max="4" />
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="property">
+                                <label for="constipation">Constipation</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="constipation" name="constipation" min="0" max="4" />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="diary-entry-data">
-                    <h2>I've got...</h2>
-                        <div class="data-row">
-                            <div class="property"><label for="stomach-pain">Stomach Pain</label></div>
-                            <div class="value"><input class="slider" type="range" id="stomach-pain" name="stomach-pain" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="bloating">Bloating</label></div>
-                            <div class="value"><input class="slider" type="range" id="bloating" name="bloating" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="flatulance">Flatulance</label></div>
-                            <div class="value"><input class="slider" type="range" id="flatulance" name="flatulance" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="diarrhoea">Diarrhoea</label></div>
-                            <div class="value"><input class="slider" type="range" id="diarrhoea" name="diarrhoea" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="constipation">Constipation</label></div>
-                            <div class="value"><input class="slider" type="range" id="constipation" name="constipation" min="0" max="4" /></div>
-                        </div>
-                </div>
+                <div class="diary-meal-container snack">
 
-            </div>
-
-            <div class="diary-meal-container lunch">
-
-                <div class="diary-entry-recipe">
-                    <div class="diary-content">
-                        <div class="recipe-container">
-                            <div class="rec-img"></div>
-                            <div class="rec-details">
-                                <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                                <div class="rec-title">Recipe Title</div>
-                                <div class="rec-prep-time">Lunch</div>
+                    <div class="diary-entry-recipe">
+                        <div class="diary-content">
+                            <div class="recipe-container">
+                                <div class="recipe-image"></div>
+                                <div class="recipe-details">
+                                    <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
+                                    <div class="recipe-title">Recipe Title</div>
+                                    <div class="recipe-prep-time">Snack</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="diary-entry-data">
-                    <h2>I've got...</h2>
+                    <div class="diary-entry-data">
+                        <h2>I've got...</h2>
                         <div class="data-row">
-                            <div class="property"><label for="stomach-pain">Stomach Pain</label></div>
-                            <div class="value"><input class="slider" type="range" id="stomach-pain" name="stomach-pain" min="0" max="4" /></div>
+                            <div class="property">
+                                <label for="stomach-pain">Stomach Pain</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="stomach-pain" name="stomach-pain" min="0" max="4" />
+                            </div>
                         </div>
                         <div class="data-row">
-                            <div class="property"><label for="bloating">Bloating</label></div>
-                            <div class="value"><input class="slider" type="range" id="bloating" name="bloating" min="0" max="4" /></div>
+                            <div class="property">
+                                <label for="bloating">Bloating</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="bloating" name="bloating" min="0" max="4" />
+                            </div>
                         </div>
                         <div class="data-row">
-                            <div class="property"><label for="flatulance">Flatulance</label></div>
-                            <div class="value"><input class="slider" type="range" id="flatulance" name="flatulance" min="0" max="4" /></div>
+                            <div class="property">
+                                <label for="flatulance">Flatulance</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="flatulance" name="flatulance" min="0" max="4" />
+                            </div>
                         </div>
                         <div class="data-row">
-                            <div class="property"><label for="diarrhoea">Diarrhoea</label></div>
-                            <div class="value"><input class="slider" type="range" id="diarrhoea" name="diarrhoea" min="0" max="4" /></div>
+                            <div class="property">
+                                <label for="diarrhoea">Diarrhoea</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="diarrhoea" name="diarrhoea" min="0" max="4" />
+                            </div>
                         </div>
                         <div class="data-row">
-                            <div class="property"><label for="constipation">Constipation</label></div>
-                            <div class="value"><input class="slider" type="range" id="constipation" name="constipation" min="0" max="4" /></div>
-                        </div>
-                </div>
-
-            </div>
-
-            <div class="diary-meal-container dinner">
-
-                <div class="diary-entry-recipe">
-                    <div class="diary-content">
-                        <div class="recipe-container">
-                            <div class="rec-img"></div>
-                            <div class="rec-details">
-                                <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                                <div class="rec-title">Recipe Title</div>
-                                <div class="rec-prep-time">Dinner</div>
+                            <div class="property">
+                                <label for="constipation">Constipation</label>
+                            </div>
+                            <div class="value">
+                                <input class="slider" type="range" id="constipation" name="constipation" min="0" max="4" />
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="diary-entry-data">
-                    <h2>I've got...</h2>
-                        <div class="data-row">
-                            <div class="property"><label for="stomach-pain">Stomach Pain</label></div>
-                            <div class="value"><input class="slider" type="range" id="stomach-pain" name="stomach-pain" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="bloating">Bloating</label></div>
-                            <div class="value"><input class="slider" type="range" id="bloating" name="bloating" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="flatulance">Flatulance</label></div>
-                            <div class="value"><input class="slider" type="range" id="flatulance" name="flatulance" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="diarrhoea">Diarrhoea</label></div>
-                            <div class="value"><input class="slider" type="range" id="diarrhoea" name="diarrhoea" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="constipation">Constipation</label></div>
-                            <div class="value"><input class="slider" type="range" id="constipation" name="constipation" min="0" max="4" /></div>
-                        </div>
                 </div>
-
             </div>
-
-            <div class="diary-meal-container snack">
-
-                <div class="diary-entry-recipe">
-                    <div class="diary-content">
-                        <div class="recipe-container">
-                            <div class="rec-img"></div>
-                            <div class="rec-details">
-                                <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                                <div class="rec-title">Recipe Title</div>
-                                <div class="rec-prep-time">Snack</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="diary-entry-data">
-                    <h2>I've got...</h2>
-                        <div class="data-row">
-                            <div class="property"><label for="stomach-pain">Stomach Pain</label></div>
-                            <div class="value"><input class="slider" type="range" id="stomach-pain" name="stomach-pain" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="bloating">Bloating</label></div>
-                            <div class="value"><input class="slider" type="range" id="bloating" name="bloating" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="flatulance">Flatulance</label></div>
-                            <div class="value"><input class="slider" type="range" id="flatulance" name="flatulance" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="diarrhoea">Diarrhoea</label></div>
-                            <div class="value"><input class="slider" type="range" id="diarrhoea" name="diarrhoea" min="0" max="4" /></div>
-                        </div>
-                        <div class="data-row">
-                            <div class="property"><label for="constipation">Constipation</label></div>
-                            <div class="value"><input class="slider" type="range" id="constipation" name="constipation" min="0" max="4" /></div>
-                        </div>
-                </div>
-
-            </div>
-        </div>
         </div>
 
 

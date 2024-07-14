@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./styles/common.css">
-    <link rel="stylesheet" href="./styles/meals.css">
-    <link rel="stylesheet" href="./styles/stats.css">
     <link rel="stylesheet" href="./styles/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +17,10 @@
             <a href="../index.html"><button><img src="../images/dashboard_active.png" alt="dashboard" height="50px"></button></a>
         </div>
         <div class="menu-items">
-            <a href="./pages/diary.html"><button>Diary</button></a>
-            <a href="./pages/meals.html"><button >Meals</button></a>
-            <a href="./pages/recipes.html"><button>Recipes</button></a>
-            <a href="./pages/stats.html"><button>Stats</button></a>
+            <a href="./pages/diary.html"><button class="navbar-button">Diary</button></a>
+            <a href="./pages/meals.html"><button class="navbar-button">Meals</button></a>
+            <a href="./pages/recipes.html"><button class="navbar-button">Recipes</button></a>
+            <a href="./pages/stats.html"><button class="navbar-button">Stats</button></a>
         </div>
     </div>
 
@@ -31,7 +29,9 @@
         <div class="content">
             <div class="dashboard-hero">
                 <div class="welcome-message">Welcome back, Boki</div>
-                <div class="user-image"><img src="./images/profile.jpeg" alt="Profile picture"></div>
+                <div class="user-image">
+                    <img src="./images/profile.jpeg" alt="Profile picture">
+                </div>
                 <div class="user-streak">
                     <ul>
                         <li class="active-streak">M</li>
@@ -47,41 +47,41 @@
             </div>
             
             <!-- Today's Meal -->
-            <div class="weekly-meals-section">
+            <div class="small-meals-section">
                 <div class="meal-heading">
                     <div class="weekday-name">Today's Meal Plan</div>
                 </div>
-                <div class="weekly-meals-content">
+                <div class="meals-content">
                     <div class="recipe-container">
-                        <div class="rec-img"></div>
-                        <div class="rec-details">
+                        <div class="recipe-image"></div>
+                        <div class="recipe-details">
                             <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                            <div class="rec-title">Recipe Title</div>
-                            <div class="rec-prep-time">Prep time</div>
+                            <div class="recipe-title">Recipe Title</div>
+                            <div class="recipe-prep-time">Prep time</div>
                         </div>
                     </div>
                     <div class="recipe-container">
-                        <div class="rec-img"></div>
-                        <div class="rec-details">
+                        <div class="recipe-image"></div>
+                        <div class="recipe-details">
                             <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                            <div class="rec-title">Recipe Title</div>
-                            <div class="rec-prep-time">Prep time</div>
+                            <div class="recipe-title">Recipe Title</div>
+                            <div class="recipe-prep-time">Prep time</div>
                         </div>
                     </div>
                     <div class="recipe-container">
-                        <div class="rec-img"></div>
-                        <div class="rec-details">
+                        <div class="recipe-image"></div>
+                        <div class="recipe-details">
                             <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                            <div class="rec-title">Recipe Title</div>
-                            <div class="rec-prep-time">Prep time</div>
+                            <div class="recipe-title">Recipe Title</div>
+                            <div class="recipe-prep-time">Prep time</div>
                         </div>
                     </div>
                     <div class="recipe-container">
-                        <div class="rec-img"></div>
-                        <div class="rec-details">
+                        <div class="recipe-image"></div>
+                        <div class="recipe-details">
                             <div class="fodmap-index-label low-fodmap">Low FODMAP</div>
-                            <div class="rec-title">Recipe Title</div>
-                            <div class="rec-prep-time">Prep time</div>
+                            <div class="recipe-title">Recipe Title</div>
+                            <div class="recipe-prep-time">Prep time</div>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="graph-container">
-                        <img class="graph" src="../images/symptom-tracker.png" alt="">
+                        <img class="graph" src="../images/symptom-tracker.png" alt="Symptom trends over time">
                     </div>
                 </div>
                 
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="graph-container">
-                        <img class="graph" src="../images/food-tracker.png" alt="">
+                        <img class="graph" src="../images/food-tracker.png" alt="Symptom score per food item graph">
                     </div>
                 </div>
             </div>

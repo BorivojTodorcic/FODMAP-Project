@@ -1,3 +1,9 @@
+.more-meals-section {
+    /* background-color: #DCA47C; */
+    height: 660px;
+    margin: 50px 30px;
+}
+
 .add-recipe-section {
     /* background-color: #DCA47C; */
     margin: 50px 30px;
@@ -10,7 +16,6 @@
     width: 100%;
     margin-top: 20px;
 }
-
 
 .form-row {
     display: flex;

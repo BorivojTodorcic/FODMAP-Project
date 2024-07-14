@@ -1,6 +1,4 @@
 /* Diary containers */
-
-
 .diary-section {
     display: flex;
     flex-wrap: wrap;
@@ -55,63 +53,6 @@
 .diary-entry-data {
     width: 70%;
 }
-
-/* Recipe blocks */
-
-.recipe-container {
-    background-color: #FFD3B6;
-    height: 250px;
-    width: 250px;
-    font-size: x-large;
-    border-radius: 10px;
-    margin: 20px;
-}
-
-.rec-img {
-    /* background-color: #DCA47C; */
-    background-color: #DCA47C;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 50%;
-    align-items: flex-start;
-}
-
-.fodmap-index-label {
-    width: 60%;
-    text-align: center;
-}
-
-.low-fodmap {
-    background-color: lightblue;
-}
-
-.high-fodmap {
-    background-color: lightcoral;
-}
-
-.rec-details * {
-    font-family: "Roboto Slab", serif;
-    font-size: medium;
-    font-weight: 300;
-    margin: 8px 10px;
-}
-
-.rec-title {
-    font-family: "Roboto Slab", serif;
-    font-size: larger;
-    font-weight: 500;
-}
-
-.left-arrow, .right-arrow {
-    background-color: #698474;
-    width: 45px;
-    height: 40px;
-    text-align: center;
-    border-radius: 15px;
-    color: #FCF8F3;
-    font-weight: bolder;
-}
-
 
 
 /* Diary Entry */
