@@ -9,8 +9,28 @@ gulp.task('styles',function(){
         .pipe(gulpless())
         .pipe(gulp.dest(temp));
  });
+ function styles() {
+  var temp = './styles';
 
-gulp.task('watch', function() {
+  return gulp.src('./styles/less/*.less')
+    .pipe(gulpless())
+    .pipe(gulp.dest(temp))
+    .pipe(livereload());
+}
+
+// gulp.task('watch', function() {
+//   livereload.listen();
+//   gulp.watch('./styles/less/*.less', ['styles']);
+// });
+
+function watch() {
   livereload.listen();
-  return gulp.watch('./styles/less/*.less', ['styles']);
-});
+  gulp.watch('./styles/less/*.less', styles);
+}
+
+
+exports.styles = styles;
+exports.watch = watch;
+
+// Default task
+exports.default = gulp.series(styles, watch);
