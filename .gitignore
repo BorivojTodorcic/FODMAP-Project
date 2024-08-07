@@ -1,2 +1,7 @@
 db.js
 .DS_Store
+
+images/
+pages/
+styles/
+index.html
