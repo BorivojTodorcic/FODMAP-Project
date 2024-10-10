@@ -3,6 +3,8 @@
 import Navbar from "../shared_components/navbar";
 import MealSection from "../shared_components/meal_section";
 import styled from "styled-components";
+// import data from "./constant";
+import {useState, useEffect} from 'react';
 
 
 const StyledWrapperDiv = styled.div`
@@ -28,58 +30,19 @@ const StyledWrapperDiv = styled.div`
 
 
 export default function Meals() {
-
-  const data = [
-    { 
-      day: 'Monday',
-      recipes: [
-        {title: "Test Recipe 1 Monday",
-          prepTime: "40 mins"
-        },
-        {title: "Test Recipe 2 Monday",
-          prepTime: "30 mins"
-        },
-        {title: "Test Recipe 3 Monday",
-          prepTime: "30 mins"
-        }
-      ]
-    },
-    { 
-      day: 'Tuesday',
-      recipes: [
-        {title: "Test Recipe 1 Tuesday",
-          prepTime: "30 mins"
-        },
-        {title: "Test Recipe 2 Tuesday",
-          prepTime: "20 mins"
-        },
-        {title: "Test Recipe 3 Tuesday",
-          prepTime: "25 mins"
-        },
-        {title: "Test Recipe 4 Tuesday",
-          prepTime: "30 mins"
-        }
-      ]
-    },
-    { 
-      day: 'Wednesday',
-      recipes: [
-        {title: "Test Recipe 1 Wednesday",
-          prepTime: "20 mins"
-        },
-        {title: "Test Recipe 2 Wednesday",
-          prepTime: "20 mins"
-        },
-        {title: "Test Recipe 3 Wednesday",
-          prepTime: "35 mins"
-        },
-        {title: "Test Recipe 4 Wednesday",
-          prepTime: "50 mins"
-        },
-      ]
-    }
-  ]
     
+  const [mealsData, setMealsData] = useState([]);
+
+
+  useEffect(() => {
+    fetch('http://localhost:3001/meals').then(res => {
+      return res.json();
+    }).then(result => {
+        setMealsData(result);
+    });
+   }, [])
+
+
   return (
       <>
         <Navbar currentRoute="/meals" />
@@ -87,9 +50,9 @@ export default function Meals() {
           <div className='content'>
             <h1>Meals Page</h1>
             {
-              data.map(item => {
+              mealsData.map(item => {
                 return (
-                  <MealSection title={item.day} recipes={item.recipes} showArrows={false}/>
+                  <MealSection key={item.day} title={item.day} recipes={item.recipes} showArrows={false}/>
                 )
               })
             }

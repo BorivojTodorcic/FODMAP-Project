@@ -72,7 +72,7 @@ export default function MealSection(props) {
               {
                 props.recipes.map(item => {
                   return (
-                    <MealCard title={item.title} prepTime={item.prepTime} />
+                    <MealCard key={item.id} title={item.title} prepTime={item.prepTime} />
                   )
                 })
               }
