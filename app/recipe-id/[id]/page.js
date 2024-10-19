@@ -137,11 +137,9 @@ export default function RecipePage({params}) {
     const [ingredients, setIngredients] = useState([]);
     const [steps, setSteps] = useState([]);
     const [url, setURL] = useState("");
-
-    const id = params.id;
     
     useEffect(() => {
-        fetch(`http://localhost:3001/recipe-id/${id}`)
+        fetch(`http://localhost:3001/recipe-id/${params.id}`)
         .then(res => res.json())
         .then(data => {
             setRecipe(data);
