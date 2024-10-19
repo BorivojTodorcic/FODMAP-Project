@@ -457,7 +457,7 @@ export default function NewRecipeForm(){
 							<Typography variant="h5" gutterBottom>Diet Type:</Typography>
 							{recipeDetails.diet.map((type) => {
 								return (
-									<Typography variant="body1" gutterBottom>{type}</Typography>
+									<Typography key={type} variant="body1" gutterBottom>{type}</Typography>
 								)
 							})}
 
@@ -471,7 +471,7 @@ export default function NewRecipeForm(){
 							<Typography variant="h5" gutterBottom>Ingredients:</Typography>
 							{recipeDetails.ingredients.map((ingredient) => {
 								return (
-									<Typography variant="body1" gutterBottom>{`${ingredient.ingredient_id}: ${ingredient.ingredient_name} (${ingredient.ingredient_detail}) ${ingredient.amount} ${ingredient.unit}`}</Typography>
+									<Typography variant="body1" key={ingredient.ingredient_id} gutterBottom>{`${ingredient.ingredient_id}: ${ingredient.ingredient_name} (${ingredient.ingredient_detail}) ${ingredient.amount} ${ingredient.unit}`}</Typography>
 								)
 							})}
 
@@ -480,7 +480,7 @@ export default function NewRecipeForm(){
 							<Typography variant="h5" gutterBottom>Steps:</Typography>
 							{ Object.keys(recipeDetails.steps).map((key) => {
 								return (
-									<Typography variant="body1" gutterBottom>{`Step ${key}) ${recipeDetails.steps[key]}`}</Typography>
+									<Typography variant="body1" key={key} gutterBottom>{`Step ${key}) ${recipeDetails.steps[key]}`}</Typography>
 								)
 							})}
 						</DialogContentText>
