@@ -1,17 +1,13 @@
 "use client"
 
-// Improvements:
-// -------------
-// 1. When typing adding ingredients into the autocomplete element, it will allow double entries
-// - Before adding state to this element, the default function was to have one of each item with no duplicates
-// 2. Add data validation and raise errors when attempting to save a recipe without adding data to all required fields.
-
 
 
 import { Autocomplete, Box, Button, Chip, Checkbox, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Divider, FormControl, FormControlLabel, FormGroup, FormLabel, InputAdornment, InputLabel, MenuItem, OutlinedInput, Radio, RadioGroup, Select, Stack, TextField, Typography} from '@mui/material/';
 import { Fragment, useEffect, useState } from 'react';
+import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid2';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 
 
@@ -27,9 +23,19 @@ export default function NewRecipeForm(){
 			setIngredeintDatabase(mappedData)})
 	}, []);
 
-
     const [mealName, setMealName] = useState('');
-    const [imageURL, setImageURL] = useState('');
+	const [imageFile, setImageFile] = useState();
+	const VisuallyHiddenInput = styled('input')({
+		clip: 'rect(0 0 0 0)',
+		clipPath: 'inset(50%)',
+		height: 1,
+		overflow: 'hidden',
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
+		whiteSpace: 'nowrap',
+		width: 1,
+	  });
     const [cookingTime, setCookingTime] = useState('');
     const [servingAmount, setServingAmount] = useState(0);
     const [dietType, setDietType] = useState([]);
@@ -55,13 +61,12 @@ export default function NewRecipeForm(){
 	};
 
 	const handleSaveRecipe = () => {
-		const sendTest = JSON.stringify(recipeDetails)
+		const fd = new FormData();
+		fd.append('recipe_details', JSON.stringify(recipeDetails))
+		fd.append('recipe_image', imageFile)
 		fetch('http://localhost:3001/api/new_recipe_submitted', {
 			method:"POST",
-			headers: {
-				'Content-Type': 'application/json',
-			  },
-			body: sendTest
+			body: fd
 		});
 		setOpenDialog(false);
 	}
@@ -128,7 +133,7 @@ export default function NewRecipeForm(){
 	};
 	
 
-	const handleSubmit = (e) => {
+	const handlePreviewRecipeDetails = (e) => {
         e.preventDefault()
 
         function validateRecipeData(data) {
@@ -146,7 +151,7 @@ export default function NewRecipeForm(){
         
         const temp_recipe_data = {
             name: mealName,
-            image: imageURL,
+            image: imageFile.name,
             time: Number(cookingTime),
             servings: Number(servingAmount),
             meal_type: mealType,
@@ -183,7 +188,7 @@ export default function NewRecipeForm(){
 					width: 800,
 					margin: 10,
 				}}
-                onSubmit={handleSubmit}
+                onSubmit={handlePreviewRecipeDetails}
             >
 
 				<Typography variant="h4" gutterBottom>Recipe Details</Typography>
@@ -195,12 +200,21 @@ export default function NewRecipeForm(){
 					onChange={(e) => setMealName(e.target.value)}
 				/>
 
-				<TextField
-					required
-					id="image_url"
-					label="Image URL"
-					onChange={(e) => setImageURL(e.target.value)}
+				<Button
+					component="label"
+					role={undefined}
+					variant="contained"
+					tabIndex={-1}
+
+					startIcon={<CloudUploadIcon />}
+				>
+					{ !imageFile ? "Upload image" : imageFile.name }
+				<VisuallyHiddenInput
+					type="file"
+					onChange={(e) => setImageFile(e.target.files[0])}
+					multiple
 				/>
+				</Button>
 
 				<TextField
 					required
@@ -293,8 +307,8 @@ export default function NewRecipeForm(){
 					sx={{ width: 800 }}
 					id="ingredients_list"
 					options={ingredientDatabase}
-					// getOptionLabel={(option) => `${option.ingredient_name} ${ option.ingredient_detail !== null ? `(${option.ingredient_detail})` : ""}`}
 					getOptionLabel={(option) => `${option.ingredient_name} (${option.ingredient_detail})`}
+					getOptionKey={(option) => `${option.ingredient_id}`}
 					onChange={handleIngredientChange}
 					renderInput={(params) => (
 						<TextField
@@ -425,7 +439,7 @@ export default function NewRecipeForm(){
 
 					<DialogContent>
 						<DialogContentText id="alert-dialog-description">
-							<Typography variant="h5" gutterBottom>Image URL:</Typography>
+							<Typography variant="h5" gutterBottom>Image File Name:</Typography>
 							<Typography variant="body1" gutterBottom>{recipeDetails.image}</Typography>
 
 							<Divider variant="middle" flexItem />

@@ -3,8 +3,8 @@
 import styled from "styled-components";
 import Navbar from "../../shared_components/navbar";
 import Image from "next/image";
-import bhaji from "../../../public/bhaji.jpg";
-import recipe from "./constant";
+import { useEffect, useState } from "react";
+
 
 
 const StyledWrapperDiv = styled.div`
@@ -85,9 +85,11 @@ const StyledLabel = styled.button`
 
 function RecipeLabel(props) {
     return (
-        props.label.map(item => {
+        props.label.map((item, index) => {
             return (
-                <StyledLabel>{item}</StyledLabel>
+                <StyledLabel key={index}>
+                    {item}
+                </StyledLabel>
             )
         })
     )
@@ -100,9 +102,9 @@ function ListRecipeIngredients(props) {
         <h2>Ingredients</h2>
         <ul>
             {
-                props.foodItems.map((ingredient, index) => 
+                props.ingredients.map((ingredient, index) => 
                     <li key={index}>
-                        {ingredient}
+                        {ingredient.ingredient_amount} {ingredient.ingredient_unit} {ingredient.ingredient_detail} {ingredient.ingredient_name} 
                     </li>)
             }
         </ul>
@@ -127,9 +129,31 @@ function ListRecipeMethod(props) {
     )
 }
 
-export default function RecipePage() {
+export default function RecipePage({params}) {
 
-    const {ingredients, method} = recipe;
+
+    const [recipe, setRecipe] = useState({});
+    const [mealLabel, setMealLabel] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
+    const [steps, setSteps] = useState([]);
+    const [url, setURL] = useState("");
+
+    const id = params.id;
+    
+    useEffect(() => {
+        fetch(`http://localhost:3001/recipe-id/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            setRecipe(data);
+            setMealLabel(data.diet_type);
+            setIngredients(data.ingredients);
+            setSteps(data.steps);
+            setURL(data.image_url);
+        })
+    }, []);
+
+    
+    
 
     return (
         <>
@@ -140,33 +164,34 @@ export default function RecipePage() {
                 <div className="recipe-header">
                     <div className="recipe-image">
                         <Image
-                            src={bhaji}
+                            src={url}
                             height={300}
                             width={400}
                             style={{borderRadius:"10px"}}
+                            alt={"Recipe Image"}
                         />
                     </div>
                     <div className="recipe-highlights">
                         <div>
                             <div className="recipe-title">
-                                <h1>{recipe.name}</h1>
+                                <h1>{recipe.meal_name}</h1>
                             </div>
                             <div className="recipe-prep">
-                                Prep time: {recipe.prep} minutes
+                                Prep time: {recipe.cooking_time} minutes
                             </div>
                         </div>
 
                         
                         <div className="recipe-label-container">
-                            <RecipeLabel label={recipe.label}/>
+                            <RecipeLabel label={mealLabel}/>
                         </div>
                     </div>
                 </div>
                 <div className="recipe-ingredients">
-                    <ListRecipeIngredients foodItems={ingredients}/>
+                    <ListRecipeIngredients ingredients={ingredients}/>
                 </div>
                 <div className="recipe-method">
-                    <ListRecipeMethod recipeSteps={method}/>
+                    <ListRecipeMethod recipeSteps={steps}/>
                 </div>
             </div>
         </StyledWrapperDiv>
