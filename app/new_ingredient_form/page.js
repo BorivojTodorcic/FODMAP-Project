@@ -19,10 +19,11 @@ export default function NewRecipeForm(){
     const [ingredientDetail, setIngredientDetail] = useState("");
     const [ingredientCategory, setIngredientCategory] = useState("");
     const [newIngredient, setNewIngredient] = useState({});
-	const [ingredientDatabase, setIngredeintDatabase] = useState([]);
+	const [ingredientDatabase, setIngredientDatabase] = useState([]);
 	const [filteredIngredients, setFilteredIngredients] = useState();
 	const [ingredientCategoriesArray, setIngredeintCategoriesArray] = useState([]);
 	const [rowModesModel, setRowModesModel] = useState({});
+	const [triggerEffect, setTriggerEffect] = useState(false);
 
 
 	// Get a list of all the current ingredient categories from the database
@@ -46,12 +47,12 @@ export default function NewRecipeForm(){
 					category: item.ingredient_category
                 }));
 				
-				setIngredeintDatabase(mappedData);
+				setIngredientDatabase(mappedData);
 				// Set the initial value of filteredIngredients
 				// This shows all the ingredients ingredients in the database on initial load
 				setFilteredIngredients(mappedData);
 			})
-		}, []);
+		}, [triggerEffect]);
 		
 
 	// Filter mechanism to check if new ingredient already exists in current database 
@@ -110,7 +111,7 @@ export default function NewRecipeForm(){
 	};
 
 	const processRowUpdate = (newRow) => {
-		setIngredeintDatabase(rows.map((row) => (row.id === newRow.id ? newRow : row)));
+		setIngredientDatabase(ingredientDatabase.map((row) => (row.id === newRow.id ? newRow : row)));
 
 		const updatedIngredient = new URLSearchParams(newRow).toString();
 		fetch('http://localhost:3001/api/edit-ingredient', {
@@ -138,6 +139,7 @@ export default function NewRecipeForm(){
 			},
 			body: ingredientData
 		});
+		setTriggerEffect(prev => !prev);
 		setOpenDialog(false);
 	};
 	
@@ -259,6 +261,7 @@ export default function NewRecipeForm(){
 						onRowModesModelChange={handleRowModesModelChange}
 						onRowEditStop={handleRowEditStop}
 						processRowUpdate={processRowUpdate}
+						onProcessRowUpdateError={(error) => console.log(error)}
 						pageSizeOptions={[10, 20, 50]}
 						sx={{ border: 0 }}
 					/>
