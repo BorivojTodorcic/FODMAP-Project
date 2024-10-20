@@ -3,11 +3,12 @@
 
 import { Box, Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Divider, FormControl, InputLabel, MenuItem, Select, Stack, TextField, Typography} from '@mui/material/';
 import { Fragment, useEffect, useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridActionsCellItem, GridRowModes, GridRowEditStopReasons } from '@mui/x-data-grid';
+import SaveIcon from '@mui/icons-material/Save';
+import EditIcon from '@mui/icons-material/Edit';
+import CancelIcon from '@mui/icons-material/Close';
 import Paper from '@mui/material/Paper';
-import Fuse from 'fuse.js'
-
-
+import Fuse from 'fuse.js';
 
 
 export default function NewRecipeForm(){
@@ -21,6 +22,7 @@ export default function NewRecipeForm(){
 	const [ingredientDatabase, setIngredeintDatabase] = useState([]);
 	const [filteredIngredients, setFilteredIngredients] = useState();
 	const [ingredientCategoriesArray, setIngredeintCategoriesArray] = useState([]);
+	const [rowModesModel, setRowModesModel] = useState({});
 
 
 	// Get a list of all the current ingredient categories from the database
@@ -75,21 +77,53 @@ export default function NewRecipeForm(){
 		}
 		
 	}, [ingredientName])
-		
-		
-	// Preview table setup
-    const columns = [
-		{ field: 'id', headerName: 'ID', width: 100, sortable: false,  },
-        { field: 'name', headerName: 'Name', width: 200 },
-        { field: 'detail', headerName: 'Detail', width: 200 },
-        { field: 'category', headerName: 'Category', width: 300, sortable: false }
-      ];
-
-    const paginationModel = { page: 0, pageSize: 10 };
 
 
+	// ===== Handler functions =====
+	const handleRowEditStop = (params, event) => {
+		if (params.reason === GridRowEditStopReasons.rowFocusOut) {
+			event.defaultMuiPrevented = true;
+		}
+	};
+
+	const handleEditClick = (id) => () => {
+		setRowModesModel({
+			...rowModesModel,
+			[id]: { mode: GridRowModes.Edit } });
+	  };
 	
-	// Handler function:
+	const handleSaveClick = (id) => () => {
+		setRowModesModel({
+			...rowModesModel,
+			[id]: { mode: GridRowModes.View } });
+	};
+	
+	const handleCancelClick = (id) => () => {
+		setRowModesModel({
+			...rowModesModel,
+			[id]: { mode: GridRowModes.View, ignoreModifications: true },
+		});
+	};
+
+	const handleRowModesModelChange = (newRowModesModel) => {
+		setRowModesModel(newRowModesModel);
+	};
+
+	const processRowUpdate = (newRow) => {
+		setIngredeintDatabase(rows.map((row) => (row.id === newRow.id ? newRow : row)));
+
+		const updatedIngredient = new URLSearchParams(newRow).toString();
+		fetch('http://localhost:3001/api/edit-ingredient', {
+			method: 'PATCH',
+			headers:{
+				'Content-type': 'application/x-www-form-urlencoded'
+			},
+			body: updatedIngredient
+		})
+
+		return newRow;
+	};
+		
 	const handleClose = () => {
 		setOpenDialog(false);
 	};
@@ -121,6 +155,37 @@ export default function NewRecipeForm(){
 		setOpenDialog(true);
     };
 
+
+	// Preview table setup:
+    const columns = [
+		{ field: 'id', headerName: 'ID', width: 100 },
+		{ field: 'name', headerName: 'Name', width: 200, editable:true },
+		{ field: 'detail', headerName: 'Detail', width: 200, editable: true },
+		{ field: 'category', headerName: 'Category', width: 200, editable: true, type: 'singleSelect', valueOptions: ingredientCategoriesArray},
+		{
+			field: 'actions',
+			headerName: 'Actions',
+			width: 100,
+			type: 'actions',
+			getActions: ({ id }) => {
+				const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
+		
+				if (isInEditMode) {
+					return [
+						<GridActionsCellItem icon={<SaveIcon />} label="Save" sx={{ color: 'primary.main', }} onClick={handleSaveClick(id)} />,
+						<GridActionsCellItem icon={<CancelIcon />} label="Cancel" className="textPrimary" onClick={handleCancelClick(id)} color="inherit" />,
+					];
+				};
+
+				return [
+					<GridActionsCellItem icon={<EditIcon />} label="Edit" className="textPrimary" onClick={handleEditClick(id)} color="inherit" />
+				];
+
+			}
+		}
+	];
+
+	const paginationModel = { page: 0, pageSize: 10 };
 
 
     return (
@@ -186,9 +251,14 @@ export default function NewRecipeForm(){
 
 				<Paper sx={{ height: 629, width: '100%' }}>
 					<DataGrid
+						editMode='row'
 						rows={filteredIngredients}
 						columns={columns}
 						initialState={{ pagination: { paginationModel } }}
+						rowModesModel={rowModesModel}
+						onRowModesModelChange={handleRowModesModelChange}
+						onRowEditStop={handleRowEditStop}
+						processRowUpdate={processRowUpdate}
 						pageSizeOptions={[10, 20, 50]}
 						sx={{ border: 0 }}
 					/>
