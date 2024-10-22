@@ -3,8 +3,8 @@
 import Navbar from "../shared_components/navbar";
 import MealSection from "../shared_components/meal_section";
 import styled from "styled-components";
-// import data from "./constant";
 import {useState, useEffect} from 'react';
+import { DOMAIN_URL } from "@/config";
 
 
 const StyledWrapperDiv = styled.div`
@@ -35,7 +35,7 @@ export default function Meals() {
 
 
   useEffect(() => {
-    fetch('http://localhost:3001/meals').then(res => {
+    fetch(DOMAIN_URL + '/meals').then(res => {
       return res.json();
     }).then(result => {
         setMealsData(result);

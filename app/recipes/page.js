@@ -5,6 +5,7 @@ import styled from "styled-components";
 import MealSection from '../shared_components/meal_section';
 // import { recipesOne, recipesTwo } from "./constant";
 import { useEffect, useState } from "react";
+import { DOMAIN_URL } from "@/config";
 
 
 const StyledWrapperDiv = styled.div`
@@ -33,7 +34,7 @@ export default function Recipes() {
     const [recipeData, setRecipeData] = useState([]);
 
     useEffect(() => {
-      fetch('http://localhost:3001/recipes').then(res => {
+      fetch(DOMAIN_URL + '/recipes').then(res => {
         return res.json();
       }).then(result => {
           setRecipeData(result);

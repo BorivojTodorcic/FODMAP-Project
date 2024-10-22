@@ -15,11 +15,12 @@
     "@mui/icons-material": "^6.1.2",
     "@mui/material": "^6.1.4",
     "@mui/x-data-grid": "^7.20.0",
+    "dotenv": "^16.4.5",
+    "fuse.js": "^7.0.0",
     "next": "^14.2.14",
     "react": "^18",
     "react-dom": "^18",
-    "styled-components": "^6.1.12",
-    "fuse.js": "^7.0.0"
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "eslint": "^8",

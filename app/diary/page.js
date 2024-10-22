@@ -1,3 +1,5 @@
+"use client"
+
 import Navbar from "../shared_components/navbar";
 
 

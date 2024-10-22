@@ -9,6 +9,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import CancelIcon from '@mui/icons-material/Close';
 import Paper from '@mui/material/Paper';
 import Fuse from 'fuse.js';
+import { DOMAIN_URL } from '@/config';
 
 
 export default function NewRecipeForm(){
@@ -28,7 +29,7 @@ export default function NewRecipeForm(){
 
 	// Get a list of all the current ingredient categories from the database
     useEffect(() => {
-        fetch("http://localhost:3001/api/all-ingredient-categories")
+        fetch(DOMAIN_URL + "/api/all-ingredient-categories")
         .then(response => response.json())
         .then(data => {
             setIngredeintCategoriesArray(data);
@@ -38,7 +39,7 @@ export default function NewRecipeForm(){
 	
 	// Get a list of all the current ingredients from the database
 	useEffect(() => {
-		fetch("http://localhost:3001/api/all-ingredients").then(response => response.json())
+		fetch(DOMAIN_URL + "/api/all-ingredients").then(response => response.json())
 		.then(data => {
 			const mappedData = data.map((item) => (
 				{   id: item.ingredient_id,
@@ -114,7 +115,7 @@ export default function NewRecipeForm(){
 		setIngredientDatabase(ingredientDatabase.map((row) => (row.id === newRow.id ? newRow : row)));
 
 		const updatedIngredient = new URLSearchParams(newRow).toString();
-		fetch('http://localhost:3001/api/edit-ingredient', {
+		fetch(DOMAIN_URL + "/api/edit-ingredient", {
 			method: 'PATCH',
 			headers:{
 				'Content-type': 'application/x-www-form-urlencoded'
@@ -132,7 +133,7 @@ export default function NewRecipeForm(){
 
 	const handleSaveIngredient = () => {
 		const ingredientData = new URLSearchParams(newIngredient).toString();
-		fetch('http://localhost:3001/api/new_ingredient_submitted', {
+		fetch(DOMAIN_URL + '/api/new_ingredient_submitted', {
 			method:"POST",
 			headers:{
 				'Content-type': 'application/x-www-form-urlencoded'

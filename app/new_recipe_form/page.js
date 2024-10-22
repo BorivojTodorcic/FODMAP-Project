@@ -8,6 +8,7 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid2';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { DOMAIN_URL } from '@/config';
 
 
 
@@ -17,7 +18,7 @@ export default function NewRecipeForm(){
 	const [ingredientDatabase, setIngredeintDatabase] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:3001/api/all-ingredients").then(response => response.json())
+		fetch(DOMAIN_URL + "/api/all-ingredients").then(response => response.json())
 		.then(data => {
 			const mappedData = data.map((item) => ({...item, amount: 0, unit: ''}))
 			setIngredeintDatabase(mappedData)})
@@ -64,7 +65,7 @@ export default function NewRecipeForm(){
 		const fd = new FormData();
 		fd.append('recipe_details', JSON.stringify(recipeDetails))
 		fd.append('recipe_image', imageFile)
-		fetch('http://localhost:3001/api/new_recipe_submitted', {
+		fetch(DOMAIN_URL + '/api/new_recipe_submitted', {
 			method:"POST",
 			body: fd
 		});

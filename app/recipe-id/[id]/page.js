@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Navbar from "../../shared_components/navbar";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { DOMAIN_URL } from "@/config";
 
 
 
@@ -139,7 +140,7 @@ export default function RecipePage({params}) {
     const [url, setURL] = useState("");
     
     useEffect(() => {
-        fetch(`http://localhost:3001/recipe-id/${params.id}`)
+        fetch(DOMAIN_URL + `/recipe-id/${params.id}`)
         .then(res => res.json())
         .then(data => {
             setRecipe(data);
