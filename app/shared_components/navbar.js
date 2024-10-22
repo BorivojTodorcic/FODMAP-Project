@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import user_icon from "../../public/dashboard_icon.png";
 import styled from "styled-components";
+import { links } from "@/constants/links";
 
 const StyledNavbarDiv = styled.div`
     display: flex;
@@ -34,14 +35,6 @@ const MenuButton = styled.button`
 `;
 
 export default function Navbar(props) {
-    const links = [
-        { id: 0, href: "/", name: "Dashboard" },
-        { id: 1, href: "/diary", name: "Diary" },
-        { id: 2, href: "/meals", name: "Meals" },
-        { id: 3, href: "/recipes", name: "Recipes" },
-        { id: 4, href: "/stats", name: "Stats" },
-    ];
-
     return (
         <StyledNavbarDiv>
             <div className="home-button">
