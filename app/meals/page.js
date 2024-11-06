@@ -47,7 +47,7 @@ export default function Meals() {
                     {mealsData.map((item) => {
                         return (
                             <MealSection
-                                key={item.day}
+                                key={item.id}
                                 title={item.day}
                                 recipes={item.recipes}
                                 showArrows={false}
