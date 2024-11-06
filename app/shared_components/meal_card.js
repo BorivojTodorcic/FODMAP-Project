@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import Image from "next/image";
 
 const StyledRecipeContainer = styled.div`
     background-color: #ffd3b6;
@@ -8,14 +9,6 @@ const StyledRecipeContainer = styled.div`
     width: 250px;
     border-radius: 10px;
     margin: 20px;
-
-    .recipe-image {
-        background-color: #dca47c;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        height: 50%;
-        align-items: flex-start;
-    }
 
     .recipe-details {
         margin: 8px 10px;
@@ -36,11 +29,17 @@ const StyledRecipePrepTimeDiv = styled.div`
 export default function MealCard(props) {
     return (
         <StyledRecipeContainer>
-            <div className="recipe-image" />
+            <Image
+                src={props.image}
+                alt="recipe image"
+                width={250}
+                height={150}
+            />
+
             <div className="recipe-details">
                 <StyledRecipeTitleDiv>{props.title}</StyledRecipeTitleDiv>
                 <StyledRecipePrepTimeDiv>
-                    Prep: {props.prepTime}
+                    Prep: {props.prepTime} mins
                 </StyledRecipePrepTimeDiv>
             </div>
         </StyledRecipeContainer>

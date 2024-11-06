@@ -46,14 +46,14 @@ export default function Recipes() {
             <StyledWrapperDiv>
                 <div className="content">
                     <h1>Recipes Page</h1>
-                    {recipeData.map((section) => {
-                        return (
+                    {/* {recipeData.map((recipe) => {
+                        return ( */}
                             <MealSection
-                                title={section.header}
-                                recipes={section.recipes}
+                                title={'All recipes'}
+                                recipes={recipeData}
                             />
-                        );
-                    })}
+                        {/* );
+                    })} */}
                 </div>
             </StyledWrapperDiv>
         </>

@@ -68,9 +68,10 @@ export default function MealSection(props) {
                 {props.recipes.map((item) => {
                     return (
                         <MealCard
-                            key={item.id}
-                            title={item.title}
-                            prepTime={item.prepTime}
+                            key={item.test_meal_id}
+                            title={item.meal_name}
+                            image={item.image_url}
+                            prepTime={item.cooking_time}
                         />
                     );
                 })}
