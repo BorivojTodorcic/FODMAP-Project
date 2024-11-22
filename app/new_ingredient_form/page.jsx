@@ -91,6 +91,7 @@ export default function NewRecipeForm() {
 		} else {
 			setFilteredIngredients(ingredientDatabase);
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ingredientName]);
 
 	// ===== Handler functions =====

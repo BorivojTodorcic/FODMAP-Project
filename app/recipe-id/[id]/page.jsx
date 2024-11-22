@@ -130,6 +130,7 @@ export default function RecipePage({ params }) {
 				setSteps(data.steps);
 				setURL(data.image_url);
 			});
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
