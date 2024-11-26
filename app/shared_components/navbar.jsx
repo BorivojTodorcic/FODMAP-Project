@@ -15,6 +15,12 @@ const StyledNavbarDiv = styled.div`
 		align-content: center;
 		margin-left: 30px;
 	}
+
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
 `;
 
 const MenuButton = styled.button`
@@ -37,26 +43,28 @@ const MenuButton = styled.button`
 export default function Navbar(props) {
 	return (
 		<StyledNavbarDiv>
-			<div className="home-button">
-				<Link href="/">
-					<Image src={user_icon} alt="User Image" width={50} height={50} />
-				</Link>
-			</div>
+			<div className="container-wrapper wrapper">
+				<div className="home-button">
+					<Link href="/">
+						<Image src={user_icon} alt="User Image" width={50} height={50} />
+					</Link>
+				</div>
 
-			<div className="menu-items">
-				{links.map((item) => {
-					return (
-						<Link href={item.href} key={item.id}>
-							<MenuButton
-								className={
-									props.currentRoute === item.href ? "page-button" : ""
-								}
-							>
-								{item.name}
-							</MenuButton>
-						</Link>
-					);
-				})}
+				<div className="menu-items">
+					{links.map((item) => {
+						return (
+							<Link href={item.href} key={item.id}>
+								<MenuButton
+									className={
+										props.currentRoute === item.href ? "page-button" : ""
+									}
+								>
+									{item.name}
+								</MenuButton>
+							</Link>
+						);
+					})}
+				</div>
 			</div>
 		</StyledNavbarDiv>
 	);
