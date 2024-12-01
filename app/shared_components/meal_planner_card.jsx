@@ -3,6 +3,7 @@ import { IconButton } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Image from "next/image";
 import { OLDCOLOURS } from "@/constants/colours";
+import { DOMAIN_URL } from "@/config";
 
 const StyledMealCard = styled.div`
 	width: 100%;
@@ -35,11 +36,36 @@ const StyledMealCard = styled.div`
 `;
 
 export default function MealPlannerCard(props) {
+	// const handleSubmit = () => {
+	// 	fetch(DOMAIN_URL + "/api/schedule_meal", {
+	// 		method: "POST",
+	// 		headers: {
+	// 			"Content-Type": "application/json",
+	// 		},
+	// 		body: JSON.stringify({
+	// 			user_id: 1,
+	// 			meal_id: 87,
+	// 			scheduled_meal_date: "2024-11-26",
+	// 			meal_time: "breakfast",
+	// 		}),
+	// 	});
+	// };
+
+	// function handleClick(event) {
+	// 	console.log(event);
+	// }
+
 	return (
 		<StyledMealCard>
 			<div className="meal-header textarea">
 				<div className="meal-time">{props.mealTime}</div>
-				<IconButton aria-label="add-meal" sx={{ p: 0 }}>
+				<IconButton
+					aria-label="add-meal"
+					sx={{ p: 0 }}
+					onClick={(e) => {
+						handleClick(e);
+					}}
+				>
 					<AddCircleIcon sx={{ color: OLDCOLOURS.dark_green, fontSize: 30 }} />
 				</IconButton>
 			</div>
@@ -48,7 +74,6 @@ export default function MealPlannerCard(props) {
 					src={props.image}
 					alt="recipe image"
 					fill
-					// sizes="33vw"
 					style={{
 						objectFit: "cover",
 					}}

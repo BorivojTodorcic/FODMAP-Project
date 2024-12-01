@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { IconButton } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import MealPlannerCard from "./meal_planner_card";
+import noMealSelected from "../../public/no-recipe-image.jpg";
 
 const StyledMealsRowDiv = styled.div`
 	display: grid;
@@ -13,7 +14,7 @@ const StyledMealsRowDiv = styled.div`
 	margin-bottom: 5rem;
 `;
 
-export default function MealTest(props) {
+export default function MealDayRow(props) {
 	const mealTimes = ["Breakfast", "Lunch", "Dinner", "Snack"];
 
 	return (
@@ -26,6 +27,7 @@ export default function MealTest(props) {
 					// Check if API returns meal data for a given mealtime
 					return props.mealsObject.hasOwnProperty(time) ? (
 						<MealPlannerCard
+							key={time}
 							mealTime={time}
 							image={props.mealsObject[time].image_url}
 							title={props.mealsObject[time].meal_name}
@@ -33,8 +35,9 @@ export default function MealTest(props) {
 					) : (
 						// Returns a placeholder MealPlannerCard Component
 						<MealPlannerCard
+							key={time}
 							mealTime={time}
-							mealName="Add a meal"
+							image={noMealSelected}
 						></MealPlannerCard>
 					);
 				})}
