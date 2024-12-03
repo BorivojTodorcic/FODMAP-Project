@@ -5,7 +5,12 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { DOMAIN_URL } from "@/config";
 import MealDayRow from "../shared_components/meal_planner_row";
-import { addWeeks, formatISO, isMonday, previousMonday, subWeeks } from "date-fns";
+import { addWeeks, subWeeks } from "date-fns";
+import { Button } from "@mui/material";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Sidebar from "../shared_components/sidebar";
+import { formatDate, getPreviousMondayString } from "@/utilities/dates";
 
 const StyledWrapperDiv = styled.div`
 	display: flex;
@@ -24,28 +29,22 @@ const StyledWrapperDiv = styled.div`
 		font-style: normal;
 		margin: 5% 0%;
 	}
-	
+
 	.date-div {
-	display: flex;
-	justify-content: space-between
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 `;
 
 export default function Meals() {
-	function formatDate(date) {
-		return formatISO(new Date(date), { representation: "date" });
-	}
-
-	function getPreviousMondayString(date) {
-		const dateObject = new Date(date || Date.now());
-		if (!isMonday(dateObject)) {
-			return formatDate(previousMonday(dateObject));
-		}
-		return formatDate(dateObject);
-	}
-
 	const [mealsData, setMealsData] = useState({});
 	const [date, setDate] = useState(getPreviousMondayString());
+	const [sidebar, setSidebar] = useState(false);
+	const [selectedMealTime, setSelectedMealTime] = useState();
+	const [refresh, setRefresh] = useState(false);
+
+	const mealsArray = Object.entries(mealsData);
 
 	useEffect(() => {
 		fetch(DOMAIN_URL + `/api/meal_planners?week=${date}`)
@@ -56,32 +55,57 @@ export default function Meals() {
 				setMealsData(result.meals);
 				setDate(result.weekCommencing);
 			});
-	}, [date]);
-
-	const mealsArray = Object.entries(mealsData);
+	}, [date, refresh]);
 
 	function backOneWeek() {
-		 setDate((prevDate) => formatDate(subWeeks(prevDate, 1)));
+		setDate((prevDate) => formatDate(subWeeks(prevDate, 1)));
 	}
 	function forwardOneWeek() {
 		return setDate((prevDate) => formatDate(addWeeks(prevDate, 1)));
 	}
 
+	function handleClick(data) {
+		!sidebar && setSelectedMealTime(data);
+		setSidebar(!sidebar);
+	}
+
 	return (
 		<>
 			<Navbar currentRoute="/meals" />
+			<Sidebar
+				visible={sidebar}
+				closeSidebar={() => setSidebar( )}
+				onRefresh={() => setRefresh(!refresh)}
+				selectedMealTime={selectedMealTime}
+			></Sidebar>
 			<StyledWrapperDiv>
 				<div className="content container-wrapper">
 					<h1>Meal Planner</h1>
 					<div className="date-div">
-						<button onClick={backOneWeek}>Prev</button>
+						<Button
+							color="success"
+							variant="outlined"
+							sx={{ height: "75%" }}
+							onClick={backOneWeek}
+							startIcon={<ChevronLeftIcon />}
+						>
+							Prev
+						</Button>
 						<h2>{date}</h2>
-						<button onClick={forwardOneWeek}>Next</button>
-						{/* <button onClick={nextMonday}>Next</button> */}
+						<Button
+							color="success"
+							variant="outlined"
+							sx={{ height: "75%" }}
+							onClick={forwardOneWeek}
+							endIcon={<ChevronRightIcon />}
+						>
+							Next
+						</Button>
 					</div>
 					{mealsArray.map((day) => {
 						return (
 							<MealDayRow
+								onClick={handleClick}
 								key={day[0]}
 								day={day[0]}
 								mealsObject={day[1]}

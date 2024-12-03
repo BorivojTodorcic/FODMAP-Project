@@ -10,6 +10,7 @@ const StyledNavbarDiv = styled.div`
 	display: flex;
 	justify-content: space-between;
 	background-color: #dca47c;
+	z-index: 2;
 
 	.home-button {
 		align-content: center;
